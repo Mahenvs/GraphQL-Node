@@ -10,8 +10,12 @@ import { USER_DATA } from "./db.js";
 // This resolver retrieves books from the "books" array above.
 const resolvers = {
   Query: {
-    users: () => {
-      return USER_DATA;
+    users: (parent, args, ctx) => {
+      if (!args.query) return [];
+      const searchString = args.query;
+      return USER_DATA.filter((user) =>
+        user.name.toLowerCase().startsWith(searchString.toLowerCase())
+      );
     },
   },
 };

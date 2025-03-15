@@ -1,7 +1,7 @@
 export const typeDefs = `#graphql
 
   type Query{
-    users: [User]!
+    users(query:String): [User]!
   }
   enum Gender{
     MALE
