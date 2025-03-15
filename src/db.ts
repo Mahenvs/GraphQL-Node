@@ -4,6 +4,7 @@ export const USER_DATA = [
     name: "Mahe",
     age: 25,
     gender: "MALE",
+    // posts:[{}]
   },
   {
     id: 5,

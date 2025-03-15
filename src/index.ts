@@ -61,6 +61,11 @@ const resolvers = {
       });
     },
   },
+  User: {
+    posts: (parent, args, ctx) => {
+      return POST_DATA.filter((post) => post.id === parent.id);
+    },
+  },
 };
 
 // The ApolloServer constructor requires two parameters: your schema

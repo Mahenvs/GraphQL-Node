@@ -25,6 +25,7 @@ export const typeDefs = `#graphql
     name:String!
     age:Int
     gender:Gender!
+    posts: [Post]
   }
    
   type Post{
