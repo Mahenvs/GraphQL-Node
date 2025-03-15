@@ -35,7 +35,30 @@ const resolvers = {
 
     // If the post contains the string, return those
     postsByQuery: (parent, args, ctx) => {
-      return;
+      // if (!args.query) {
+      //   return POST_DATA;
+      // }
+      const searchItem = args.query.toLowerCase();
+      return POST_DATA.filter((post) => {
+        if (
+          post.body.toLowerCase().includes(searchItem) ||
+          post.title.toLowerCase().includes(searchItem)
+        ) {
+          return post;
+        }
+      });
+    },
+    postByTitle: (parent, args, ctx) => {
+      return POST_DATA.filter((post) =>
+        post.title.toLowerCase().includes(args.searchKey.toLowerCase())
+      );
+    },
+  },
+  Post: {
+    author(parent, args, ctx) {
+      return USER_DATA.find((user) => {
+        return user.id === parent.author;
+      });
     },
   },
 };

@@ -9,6 +9,8 @@ export const typeDefs = `#graphql
 
     # Get Posts if it contains the string
     postsByQuery(query:String):[Post]
+
+    postByTitle(searchKey:String):[Post]
   }
   enum ORDER{
     ASC
@@ -30,5 +32,6 @@ export const typeDefs = `#graphql
     title: String!
     body: String
     published:Boolean
+    author:User!
   }
 `;
