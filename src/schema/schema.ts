@@ -3,8 +3,12 @@ export const typeDefs = `#graphql
   type Query{
     users(query:String): [User]!
     usersByOrder(sortBy:ORDER!):[User]!
-
+    
+    # Get All Posts
     posts:[Post]!
+
+    # Get Posts if it contains the string
+    postsByQuery(query:String):[Post]
   }
   enum ORDER{
     ASC
