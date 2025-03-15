@@ -6,7 +6,7 @@ export const USER_DATA = [
     gender: "MALE",
   },
   {
-    id: 5,
+    id: 2,
     name: "Hugh",
     age: 28,
     gender: "MALE",
