@@ -32,11 +32,6 @@ const resolvers = {
     posts: () => {
       return POST_DATA;
     },
-
-    // If the post contains the string, return those
-    postsByQuery: (parent, args, ctx) => {
-      return;
-    },
   },
 };
 
