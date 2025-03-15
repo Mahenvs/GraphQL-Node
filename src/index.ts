@@ -4,7 +4,7 @@ import cors from "cors";
 import { expressMiddleware } from "@apollo/server/express4";
 import express from "express";
 import { typeDefs } from "./schema/schema.js";
-import { USER_DATA } from "./db.js";
+import { POST_DATA, USER_DATA } from "./db.js";
 
 // Resolvers define how to fetch the types defined in your schema.
 // This resolver retrieves books from the "books" array above.
@@ -16,6 +16,21 @@ const resolvers = {
       return USER_DATA.filter((user) =>
         user.name.toLowerCase().startsWith(searchString.toLowerCase())
       );
+    },
+    usersByOrder: (parent, args, ctx) => {
+      return [...USER_DATA].sort((a, b) => {
+        if (args.sortBy === "ASC") {
+          return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1;
+        } else if (args.sortBy === "DESC") {
+          return a.name.toLowerCase() > b.name.toLowerCase() ? -1 : 1;
+        }
+        return 0;
+      });
+    },
+
+    // Post Routes
+    posts: () => {
+      return POST_DATA;
     },
   },
 };
