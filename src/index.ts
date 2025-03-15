@@ -35,8 +35,6 @@ const resolvers = {
 
     // If the post contains the string, return those
     postsByQuery: (parent, args, ctx) => {
-      // I am testing git revert
-
       return;
     },
   },
